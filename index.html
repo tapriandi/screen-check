@@ -4,8 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Screen Check</title>
+
+  <link rel="stylesheet" href="./assets/css/main.min.css">
 </head>
 <body>
-  <h2>Screen Check</h2>
+  <div class="wrapper">
+
+    <div class="box">
+      <h2>My Screen Size</h2>
+      <table></table>
+    </div>
+
+    <div class="value"></div>
+
+  </div>
+
+  <script>
+      getScreenSize();
+      window.addEventListener("resize", getScreenSize);
+
+      function getScreenSize() {
+        let value = '',
+          table = '',
+          pos = [
+          {
+            class: 'width',
+            title: 'Current Width',
+            size: window.innerWidth
+          },
+          {
+            class: 'height',
+            title: 'Current Heignt',
+            size: window.innerHeight
+          },
+          {
+            class: '',
+            title: 'Native Width',
+            size: window.outerWidth
+          },
+          {
+            class: '',
+            title: 'Native Height',
+            size: window.outerHeight
+          }
+        ]
+
+        pos.forEach((e, index) => {
+          value += e.class != '' ? `<p class=${e.class} >${e.size}<span>px</span></p><p class='${e.class + ' a' + index}' >${e.size}<span>px</span></p>`:''
+          table += `<tr><td>${e.title}</td><td>${e.size}<span>px</span></td></tr>`
+        });
+
+        document.querySelector('.value').innerHTML = value
+        document.querySelector('table').innerHTML = table
+      }
+
+  </script>
 </body>
 </html>

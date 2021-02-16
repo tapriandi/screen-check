@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  z-index: 1;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.value {
+  position: absolute;
+  height: 90%;
+  width: 92%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid red;
+
+  p {
+    position: absolute;
+    padding: 2px 15px;
+    font-size: 1.6rem;
+    background: white;
+    transform: translate(-50%, -50%);
+    span {
+      font-size: 1.2rem;
+      color: burlywood;
+    }
+  }
+
+  .width {
+    top: 0;
+    left: 50%;
+    color: blue;
+    &:nth-child(2), &.a0 {
+      top: 100%;
+    }
+  }
+
+  .height {
+    top: 50%;
+    left: 0;
+    color: blue;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    
+    &.a1 {
+      left: 100%;
+    }
+  }
+}
+
+table {
+  margin: 40px auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  tr {
+    vertical-align: top;
+    td {
+      padding: 5px 30px;
+      color: gray;
+      border: 1px solid;
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: left;
+
+      &:nth-child(2) {
+        text-align: center;
+      }
+      span {
+        color: burlywood;
+      }
+    }
+    &:nth-child(1), &:nth-child(2) {
+      td, td span {
+        font-weight: 700;
+        color: orange;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 780px) {
+  .value {
+    width: 80%;
+  }
+  table tr td {
+    padding: 10px 15px;
+    font-size: .8rem;
+  }
+}
